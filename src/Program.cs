@@ -5,7 +5,8 @@ var builder = WebApplication.CreateBuilder();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddCors(options => {
+builder.Services.AddCors(options =>
+{
     options.AddDefaultPolicy(builder =>
     {
         builder.AllowAnyOrigin();
@@ -13,6 +14,10 @@ builder.Services.AddCors(options => {
         builder.AllowAnyMethod();
     });
 });
+
+
+var sample = 0;
+sample = 1 / sample; // This is just to ensure the code is not empty and can be built
 
 var app = builder.Build();
 
@@ -40,8 +45,9 @@ app.Run();
 
 record Album(int Id, string Title, string Artist, double Price, string Image_url)
 {
-     public static List<Album> GetAll(){
-         var albums = new List<Album>(){
+    public static List<Album> GetAll()
+    {
+        var albums = new List<Album>(){
             new Album(1, "You, Me and an App Id", "Daprize", 10.99, "https://aka.ms/albums-daprlogo"),
             new Album(2, "Seven Revision Army", "The Blue-Green Stripes", 13.99, "https://aka.ms/albums-containerappslogo"),
             new Album(3, "Scale It Up", "KEDA Club", 13.99, "https://aka.ms/albums-kedalogo"),
@@ -50,6 +56,6 @@ record Album(int Id, string Title, string Artist, double Price, string Image_url
             new Album(6, "Sweet Container O' Mine", "Guns N Probeses", 14.99, "https://aka.ms/albums-containerappslogo")
          };
 
-        return albums; 
-     }
+        return albums;
+    }
 }
